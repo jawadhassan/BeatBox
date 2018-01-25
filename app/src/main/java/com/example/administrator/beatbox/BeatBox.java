@@ -52,7 +52,15 @@ public class BeatBox {
                         filename, ex);
             }
         }
+    }
 
+    public void play(Sound sound) {
+        Integer soundId = sound.getSoundId();
+        if (soundId == null) {
+            return;
+        }
+
+        mSoundPool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f);
     }
 
     public List<Sound> getSounds() {
