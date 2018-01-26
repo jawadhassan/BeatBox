@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by Administrator on 1/25/2018.
@@ -27,6 +28,12 @@ public class SoundViewModelTest {
     public void exposesSoundNameAsTitle() {
         MatcherAssert.assertThat(mSubject.getTitle(),
                 Is.is(mSound.getName()));
+    }
+
+    @Test
+    public void callsBeatBoxPlayOnButtonClicked() {
+        mSubject.onButtonClicked();
+        verify(mBeatBox).play(mSound);
     }
 
 
